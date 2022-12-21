@@ -11,7 +11,7 @@ describe('Registration', function () {
 		driver = new Builder().forBrowser('firefox').setFirefoxService(service).build();
 		driver.get("http://127.0.0.1:8000/register");
 	});
-	it("User should register successfully and logged in", async function () {
+	it("Should register successfully and logged in", async function () {
 
 		//fill in the form
 		this.timeout(20000);

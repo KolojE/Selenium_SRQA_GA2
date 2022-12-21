@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./main.js"
-    ,"test2":"mocha ./Products_ShoppingCart_Payment.js"
+    "test": "mocha ./main.js",
+    "test2": "mocha ./Products_ShoppingCart_Payment.js",
+    "generate report": "mocha --spec ./main.js --reporter mochawesome"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "geckodriver": "^3.2.0",
+    "mochawesome": "^7.1.3",
     "selenium-webdriver": "^4.7.1"
   },
   "devDependencies": {

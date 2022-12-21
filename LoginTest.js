@@ -4,12 +4,12 @@ const firefox = require("selenium-webdriver/firefox");
 const service = new firefox.ServiceBuilder('/usr/bin/geckodriver');
 const assert = require("assert");
 var driver = null;
-describe('login', function () {
+describe('Login', function () {
 	this.beforeEach(async function () {
 		driver = new Builder().forBrowser('firefox').setFirefoxService(service).build();
 		driver.get("http://127.0.0.1:8000/login");
 	});
-	it("Valid user login ", async function () {
+	it("Should login with valid login credential", async function () {
 		this.timeout(10000);
 		var emailElement = await driver.findElement(By.id('email')).sendKeys("Customer@email.com");
 		var passwordElement = await driver.findElement(By.id('password')).sendKeys("Customer");
@@ -20,12 +20,12 @@ describe('login', function () {
 		var expectedTitle = "Profile";
 		assert.equal(actualTitle, expectedTitle);
 		driver.quit();
-
+1
 	}
 
 	)
 
-	it("invalid user login", async function () {
+	it("Should not login with invalid login credential", async function () {
 		this.timeout(9000)
 		var emailElement = await driver.findElement(By.id('email')).sendKeys("InvalidCustomer@email.com");
 		var passwordElement = await driver.findElement(By.id('password')).sendKeys("InvalidCustomer");

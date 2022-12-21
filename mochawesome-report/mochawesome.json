@@ -1,0 +1,408 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 9,
+    "passes": 9,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-21T19:58:57.419Z",
+    "end": "2022-12-21T19:59:39.197Z",
+    "duration": 41778,
+    "testsRegistered": 9,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7e09729b-c099-420a-bfe6-bdb2a73599f1",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "22b5420b-9018-4e2a-ad72-b88ad267c8f6",
+          "title": "Login",
+          "fullFile": "/home/koloje/Documents/MMU/SQA/Selenium/main.js",
+          "file": "/main.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Login\"",
+              "fullTitle": "Login \"before each\" hook in \"Login\"",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = new Builder().forBrowser('firefox').setFirefoxService(service).build();\ndriver.get(\"http://127.0.0.1:8000/login\");",
+              "err": {},
+              "uuid": "9824fe85-a5fb-4c05-8d3c-1886df42c9e2",
+              "parentUUID": "22b5420b-9018-4e2a-ad72-b88ad267c8f6",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Login\"",
+              "fullTitle": "Login \"after each\" hook in \"Login\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver.quit();",
+              "err": {},
+              "uuid": "26b751a1-cf89-4635-8405-7728cd7ae220",
+              "parentUUID": "22b5420b-9018-4e2a-ad72-b88ad267c8f6",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Should login with valid login credential",
+              "fullTitle": "Login Should login with valid login credential",
+              "timedOut": false,
+              "duration": 2354,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nvar emailElement = await driver.findElement(By.id('email')).sendKeys(\"Customer@email.com\");\nvar passwordElement = await driver.findElement(By.id('password')).sendKeys(\"Customer\");\nvar rememberMeCheckbox = await driver.findElement(By.id(\"remember_me\"));\nawait driver.findElement(By.tagName(\"form\")).submit();\nawait driver.wait(until.titleIs(\"Profile\"));\nvar actualTitle = await driver.getTitle();\nvar expectedTitle = \"Profile\";\nassert.equal(actualTitle, expectedTitle);\ndriver.quit();\n1",
+              "err": {},
+              "uuid": "7d76ad1f-1e3d-43b0-b777-22d5cd42b9f6",
+              "parentUUID": "22b5420b-9018-4e2a-ad72-b88ad267c8f6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should not login with invalid login credential",
+              "fullTitle": "Login Should not login with invalid login credential",
+              "timedOut": false,
+              "duration": 2781,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(9000)\nvar emailElement = await driver.findElement(By.id('email')).sendKeys(\"InvalidCustomer@email.com\");\nvar passwordElement = await driver.findElement(By.id('password')).sendKeys(\"InvalidCustomer\");\nvar rememberMeCheckbox = await driver.findElement(By.id(\"remember_me\"));\nawait driver.findElement(By.tagName(\"form\")).submit();\nawait driver.wait(until.elementLocated(By.xpath(\"//li\")), 5000)\nconst errorMsg = await driver.findElement(By.xpath(\"//li[last()]\")).getText().then(function (value) { return value });\nassert.equal(errorMsg, \"These credentials do not match our records.\");",
+              "err": {},
+              "uuid": "baa70275-3b2b-4c35-89d8-1b39d2db524f",
+              "parentUUID": "22b5420b-9018-4e2a-ad72-b88ad267c8f6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7d76ad1f-1e3d-43b0-b777-22d5cd42b9f6",
+            "baa70275-3b2b-4c35-89d8-1b39d2db524f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5135,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "ac9e4232-2347-468b-a12e-a3fd2abd1131",
+          "title": "Registration",
+          "fullFile": "/home/koloje/Documents/MMU/SQA/Selenium/main.js",
+          "file": "/main.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Registration\"",
+              "fullTitle": "Registration \"before all\" hook in \"Registration\"",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = new Builder().forBrowser('firefox').setFirefoxService(service).build();\ndriver.get(\"http://127.0.0.1:8000/register\");",
+              "err": {},
+              "uuid": "f6dcc732-4a10-4ffc-8612-093d2bb30a64",
+              "parentUUID": "ac9e4232-2347-468b-a12e-a3fd2abd1131",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Registration\"",
+              "fullTitle": "Registration \"after all\" hook in \"Registration\"",
+              "timedOut": false,
+              "duration": 4416,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//delete previous registered user\n\t\tdriver = new Builder().forBrowser('firefox').setFirefoxService(service).build();\n\t\tawait driver.get(\"http://127.0.0.1:8000/admin\");\n\t\tawait driver.findElement(By.id(\"email\")).sendKeys(\"admin@email.com\");\n\t\tawait driver.findElement(By.id(\"password\")).sendKeys(\"admin\");\n\t\tawait driver.findElement(By.tagName(\"form\")).submit();\n\t\tawait driver.wait(until.titleIs(\"Aimeos administration interface\"));\n\t\tawait driver.get(\"http://127.0.0.1:8000/admin/default/jqadm/search/customer?locale=en\");\n\t\tawait driver.findElement(By.xpath(\"/html/body/div[2]/main/div[4]/form/div[2]/table/tbody/tr[last()]/td[last()]/a[2]\")).click();\n\t\tawait driver.wait(until.elementIsVisible(driver.findElement(By.xpath(\"/html/body/div[2]/main/div[4]/div[2]/div/div/div[3]/button[2]\"))));\n\t\tawait driver.findElement(By.xpath(\"/html/body/div[2]/main/div[4]/div[2]/div/div/div[3]/button[2]\")).click();\n\t\tdriver.quit();",
+              "err": {},
+              "uuid": "49de937c-501c-4ab6-8940-8c481de8bcc3",
+              "parentUUID": "ac9e4232-2347-468b-a12e-a3fd2abd1131",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Should register successfully and logged in",
+              "fullTitle": "Registration Should register successfully and logged in",
+              "timedOut": false,
+              "duration": 7062,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//fill in the form\n\t\tthis.timeout(20000);\n\t\tawait driver.findElement(By.id('name')).sendKeys(\"customer1\");\n\t\tawait driver.findElement(By.id('email')).sendKeys(\"Customer1@email.com\");\n\t\tawait driver.findElement(By.id('password')).sendKeys(\"Customer1\");\n\t\tawait driver.findElement(By.id('password_confirmation')).sendKeys(\"Customer1\");\n\t\t//submit the form\n\t\tawait driver.findElement(By.tagName(\"form\")).submit();\n\t\tawait driver.wait(until.titleIs(\"Profile\"));\n\t\t//assert the actual title and expected title to makesure its logged in .\n\t\tvar actualTitle = await driver.getTitle();\n\t\tvar expectedTitle = \"Profile\";\n\t\tdriver.get(\"http://127.0.0.1:8000/register\");\n\t\tassert.equal(actualTitle, expectedTitle);\n\t\tdriver.quit();",
+              "err": {},
+              "uuid": "ca9483c5-86c0-4bad-bc10-ba2843a427a6",
+              "parentUUID": "ac9e4232-2347-468b-a12e-a3fd2abd1131",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ca9483c5-86c0-4bad-bc10-ba2843a427a6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7062,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "21d1cb5f-c3c2-4787-8d07-493f28eb11df",
+          "title": "View Product and Shopping Cart",
+          "fullFile": "/home/koloje/Documents/MMU/SQA/Selenium/main.js",
+          "file": "/main.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"View Product and Shopping Cart\"",
+              "fullTitle": "View Product and Shopping Cart \"before all\" hook in \"View Product and Shopping Cart\"",
+              "timedOut": false,
+              "duration": 4540,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = new Builder().forBrowser('firefox').setFirefoxService(service).build();\ndriver.get(\"http://127.0.0.1:8000/login\");\nvar emailElement = await driver.findElement(By.id('email')).sendKeys(\"Customer@email.com\");\nvar passwordElement = await driver.findElement(By.id('password')).sendKeys(\"Customer\");\nvar rememberMeCheckbox = await driver.findElement(By.id(\"remember_me\"));\nawait driver.findElement(By.tagName(\"form\")).submit();\nawait driver.wait(until.titleIs(\"Profile\"));\nawait driver.sleep(1000);\nawait driver.findElement(By.className(\"navbar-brand\")).click();\nawait driver.wait(until.titleIs(\"Home | Default\"));",
+              "err": {},
+              "uuid": "9c3b2030-2c79-4bf8-9c69-b94ff7b92b6c",
+              "parentUUID": "21d1cb5f-c3c2-4787-8d07-493f28eb11df",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should able to view the product",
+              "fullTitle": "View Product and Shopping Cart Should able to view the product",
+              "timedOut": false,
+              "duration": 466,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nvar expectedProductName = await driver.findElement(By.xpath(\"/html/body/div/section[2]/div/div[2]/div/div/div[2]/div[2]/a/div[2]/h2\")).getText();\nawait driver.findElement(By.xpath(\"/html/body/div/section[2]/div/div[2]/div/div/div[2]/div[1]/a\")).click();\nvar actualProductName = await driver.findElement(By.xpath(\"/html/body/div/div/div/article/div[2]/div[1]/h1\")).getText();\nassert.equal(actualProductName, expectedProductName);",
+              "err": {},
+              "uuid": "a623c8c0-8272-4fc3-b160-bd90e47edbe7",
+              "parentUUID": "21d1cb5f-c3c2-4787-8d07-493f28eb11df",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should add the product to shopping cart",
+              "fullTitle": "View Product and Shopping Cart Should add the product to shopping cart",
+              "timedOut": false,
+              "duration": 988,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nvar expectedProductName = await driver.findElement(By.xpath(\"/html/body/div/div/div/article/div[2]/div[1]/h1\")).getText();\nawait driver.findElement(By.xpath(\"/html/body/div/div/div/article/div[2]/div[2]/form/div[3]/div/button[@type='submit']\")).click();\nawait driver.wait(until.elementsLocated(By.className(\"basket-standard\")));\nawait driver.findElement(By.xpath(\"/html/body/div[3]/section/div/form/div[1]/div/div/button\")).click();\nvar actualProductName = await driver.findElement(By.className(\"product-name\")).getText();\nassert.equal(actualProductName.toUpperCase(), expectedProductName);",
+              "err": {},
+              "uuid": "7b320c47-458a-479e-bba7-f8b62d500a47",
+              "parentUUID": "21d1cb5f-c3c2-4787-8d07-493f28eb11df",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should able to edit the product quantity",
+              "fullTitle": "View Product and Shopping Cart Should able to edit the product quantity",
+              "timedOut": false,
+              "duration": 448,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nvar preQuantity = await driver.findElement(By.xpath(\"/html/body/div/div/section[1]/div/form/div[2]/div[2]/div/div[3]/div[2]/div/div[1]/input[1]\")).getAttribute(\"value\");\nawait driver.findElement(By.xpath(\"/html/body/div/div/section[1]/div/form/div[2]/div[2]/div/div[3]/div[2]/div/div[1]/a\")).click();\nawait driver.wait(function () {\n    return driver.findElement(By.xpath(\"/html/body/div/div/section[1]/div/form/div[2]/div[2]/div/div[3]/div[2]/div/div[1]/input[1]\")).getAttribute(\"value\").then(function (value) {\n        return Number(value) === Number(preQuantity) + 1;\n    });\n}, 0)",
+              "err": {},
+              "uuid": "4756597d-e007-4d47-8d14-216d60c38a61",
+              "parentUUID": "21d1cb5f-c3c2-4787-8d07-493f28eb11df",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should remove the product in shopping cart",
+              "fullTitle": "View Product and Shopping Cart Should remove the product in shopping cart",
+              "timedOut": false,
+              "duration": 3701,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nawait driver.get(\"http://127.0.0.1:8000\");\nawait driver.executeScript(\"window.scrollBy({top:1000})\");\nawait driver.sleep(1000);\nawait driver.findElement(By.xpath(\"/html/body/div/section[2]/div/div[4]/div/div/div[1]/div[1]/a\")).click();\nawait driver.sleep(1000);\nawait driver.findElement(By.xpath(\"/html/body/div/div/div/article/div[2]/div[2]/form/div[3]/div/button\")).click();\nawait driver.wait(until.elementsLocated(By.className(\"basket-standard\")));\nawait driver.findElement(By.xpath(\"/html/body/div[3]/section/div/form/div[1]/div/div/button\")).click();\nawait driver.findElement(By.xpath(\"/html/body/div/div/section[1]/div/form/div[2]/div[2]/div/div[3]/div[2]/div/div[4]/a\")).click();",
+              "err": {},
+              "uuid": "70195e94-a69f-4c5c-89b4-132c0df74350",
+              "parentUUID": "21d1cb5f-c3c2-4787-8d07-493f28eb11df",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should be able to check out",
+              "fullTitle": "View Product and Shopping Cart Should be able to check out",
+              "timedOut": false,
+              "duration": 5767,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(10000);\nawait driver.findElement(By.xpath(\"/html/body/div/div/section[1]/div/form/div[4]/a[2]\")).click();\nawait driver.wait(until.titleIs(\"Checkout\"));\nawait driver.findElement(By.xpath(\"/html/body/div/div/section/nav/ol/li[2]\")).click();\nawait driver.findElement(By.id(\"address-billing-firstname-22\")).clear();\nawait driver.findElement(By.id(\"address-billing-firstname-22\")).sendKeys(\"CustomerFirstName\");\nawait driver.findElement(By.id(\"address-billing-lastname-22\")).clear();\nawait driver.findElement(By.id(\"address-billing-lastname-22\")).sendKeys(\"CutomerLastName\");\nawait driver.findElement(By.id(\"address-billing-address1-22\")).clear();\nawait driver.findElement(By.id(\"address-billing-address1-22\")).sendKeys(\"CutomerLastName\");\nawait driver.findElement(By.id(\"address-billing-city-22\")).clear();\nawait driver.findElement(By.id(\"address-billing-city-22\")).sendKeys(\"Cyberjaya\")\nawait driver.findElement(By.id(\"address-billing-postal-22\")).clear();\nawait driver.findElement(By.id(\"address-billing-postal-22\")).sendKeys(\"63000\")\nawait driver.executeScript(\"window.scrollBy(0,document.body.scrollHeight)\");\nawait driver.sleep(1000);\nawait driver.findElement(By.xpath(\"/html/body/div/div/section/form/section/div[2]/button\")).click();\nawait driver.wait(until.elementTextIs(driver.findElement(By.xpath(\"/html/body/div/div/section/form/section/h1\")), \"DELIVERY\"));\nawait driver.findElement(By.id(\"c_deliveryoption-31\")).click();\nawait driver.executeScript(\"window.scrollBy(0,document.body.scrollHeight)\");\nawait driver.sleep(1000);\nawait driver.findElement(By.xpath(\"/html/body/div/div/section/form/section/div[6]/button\")).click();",
+              "err": {},
+              "uuid": "ddae1fed-154f-4dc4-99a8-e4d60dae9c21",
+              "parentUUID": "21d1cb5f-c3c2-4787-8d07-493f28eb11df",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "a7f9f919-4864-43a5-911f-993a3d086d6f",
+              "title": "Payment",
+              "fullFile": "/home/koloje/Documents/MMU/SQA/Selenium/main.js",
+              "file": "/main.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Payment should success and display confirmation message",
+                  "fullTitle": "View Product and Shopping Cart Payment Payment should success and display confirmation message",
+                  "timedOut": false,
+                  "duration": 9227,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(10000);\nawait driver.executeScript(\"window.scrollBy(5,document.body.scrollHeight)\");\nawait driver.sleep(1000);\nawait driver.findElement(By.id(\"c_paymentoption-39\")).click();\nawait driver.findElement(By.xpath(\"/html/body/div/div/section/form/section/div[6]/button\")).click();\nawait driver.wait(until.elementTextIs(driver.findElement(By.xpath(\"/html/body/div/div/section/form/section/h1\")), \"SUMMARY\"));\nawait driver.executeScript(\"window.scrollBy({top:500})\");\nawait driver.sleep(1000);\nawait driver.findElement(By.id(\"option-terms-accept\")).click();\nawait driver.executeScript(\"window.scrollBy({top:500})\");\nawait driver.sleep(1000);\nawait driver.findElement(By.xpath(\"/html/body/div/div/section/form/section/div[6]/button\")).click();\nawait driver.sleep(5000);\nawait driver.wait(until.elementTextIs(driver.findElement(By.xpath(\"/html/body/div/div/section/div/h1\")), \"CONFIRMATION\"));",
+                  "err": {},
+                  "uuid": "d43d3052-df33-4cc0-b82b-455f59479285",
+                  "parentUUID": "a7f9f919-4864-43a5-911f-993a3d086d6f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d43d3052-df33-4cc0-b82b-455f59479285"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9227,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            }
+          ],
+          "passes": [
+            "a623c8c0-8272-4fc3-b160-bd90e47edbe7",
+            "7b320c47-458a-479e-bba7-f8b62d500a47",
+            "4756597d-e007-4d47-8d14-216d60c38a61",
+            "70195e94-a69f-4c5c-89b4-132c0df74350",
+            "ddae1fed-154f-4dc4-99a8-e4d60dae9c21"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11370,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
